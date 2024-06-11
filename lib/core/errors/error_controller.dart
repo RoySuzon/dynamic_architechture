@@ -16,17 +16,30 @@ mixin ErrorController {
     );
   }
 
-  void handleError(error) {
+  handleError( error) {
     if (error is BadRequestException) {
-       SnackBar(content: Text('Error'), backgroundColor: Colors.red);
+      customSnackbar(
+          title: "Error",
+          msg: BadRequestException().message,
+          color: Colors.red);
     } else if (error is FetchDataException) {
-       SnackBar(content: Text('Error'), backgroundColor: Colors.red);
+      customSnackbar(
+          title: "Error", msg: FetchDataException().message, color: Colors.red);
     } else if (error is DataNotFoundException) {
-       SnackBar(content: Text('Error'), backgroundColor: Colors.red);
+      customSnackbar(
+          title: "Error",
+          msg: DataNotFoundException().message,
+          color: Colors.red);
     } else if (error is ApiNotRespondingException) {
-       SnackBar(content: Text('Error'), backgroundColor: Colors.red);
+      customSnackbar(
+          title: "Error",
+          msg: ApiNotRespondingException().message,
+          color: Colors.red);
     } else if (error is UnauthorizedException) {
-       SnackBar(content: Text('Error'), backgroundColor: Colors.red);
+      customSnackbar(
+          title: "Error",
+          msg: UnauthorizedException().message,
+          color: Colors.red);
     }
   }
 }

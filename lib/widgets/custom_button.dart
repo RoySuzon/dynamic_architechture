@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dynamic_architechture/core/utils/app_colors.dart';
@@ -32,11 +33,12 @@ class CustomButton extends StatelessWidget {
             }
           : () {},
       child: Obx(() => Center(
-          child: !isLoading.value
-              ? Text(text)
-              : const CircularProgressIndicator(
-                  color: Colors.white,
-                ))),
+            child: !isLoading.value
+                ? Text(text)
+                : CupertinoActivityIndicator(
+                    color: Colors.white,
+                  ),
+          )),
     );
   }
 }

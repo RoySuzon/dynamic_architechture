@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dynamic_architechture/presentation/LoginScreen/controller/login_screen_controller.dart';
 import 'package:dynamic_architechture/presentation/SplashScreen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +23,15 @@ class MyApp extends StatelessWidget {
       initialBinding: BindingsBuilder(() {
         Get.lazyPut(() => LoginController());
       }),
+      enableLog: true,
+      logWriterCallback: Logger.write,
       home: const SplashScreen(),
     );
+  }
+}
+
+class Logger {
+  static write(String text, {bool isError = false}) {
+    Future.microtask(() => log('**$text . isErro [$isError]'));
   }
 }

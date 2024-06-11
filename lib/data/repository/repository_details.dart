@@ -22,18 +22,18 @@ class RepositoryData with ErrorController implements RepositoryInterface {
   Future<LoginResponse> login(String userName, String password) async {
     Map<String, dynamic> body = {"username": userName, "password": password};
     log(body.toString());
-    // try {
+    try {
       var response =
           await apiClient.postData("auth/login", body, useBearerToken: false);
       // var loginResponse = loginResponseModelFromJson(response.);
       // print(response);
       log(loginResponseFromJson(response).email!);
       return loginResponseFromJson(response);
-    // } catch (e) {
-    //   handleError(e);
-    //   // print(e.toString());
-    //   throw Exception('Error in login: $e');
-    // }
+    } catch (e) {
+    handleError(e);
+      // print(e.toString());
+      throw Exception('Error in login: $e');
+    }
   }
 
   @override
