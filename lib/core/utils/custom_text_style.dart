@@ -1,6 +1,7 @@
-import 'package:dynamic_architechture/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:dynamic_architechture/core/utils/app_colors.dart';
 
 class AppTextStyle {
   // Text Styles
@@ -147,12 +148,10 @@ class AppTextStyle {
   // Button Styles
 
   static get buttonStyle => ButtonStyle(
-        backgroundColor:
-            MaterialStateProperty.all<Color>(AppColors.primaryColor),
-        foregroundColor: MaterialStateProperty.all<Color>(AppColors.colorWhite),
-        minimumSize:
-            MaterialStateProperty.all<Size>(Size(double.infinity, 60.h)),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        backgroundColor: WidgetStateProperty.all<Color>(AppColors.primaryColor),
+        foregroundColor: WidgetStateProperty.all<Color>(AppColors.colorWhite),
+        minimumSize: WidgetStateProperty.all<Size>(Size(double.infinity, 60.h)),
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0.r), // Rounded corners
           ),
@@ -160,12 +159,10 @@ class AppTextStyle {
       );
 
   static get buttonStyle2 => ButtonStyle(
-        backgroundColor:
-            MaterialStateProperty.all<Color>(AppColors.buttonColor),
-        foregroundColor: MaterialStateProperty.all<Color>(AppColors.colorWhite),
-        minimumSize:
-            MaterialStateProperty.all<Size>(Size(double.infinity, 60.h)),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        backgroundColor: WidgetStateProperty.all<Color>(AppColors.buttonColor),
+        foregroundColor: WidgetStateProperty.all<Color>(AppColors.colorWhite),
+        minimumSize: WidgetStateProperty.all<Size>(Size(double.infinity, 60.h)),
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0.r), // Rounded corners
           ),

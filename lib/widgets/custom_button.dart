@@ -35,7 +35,7 @@ class CustomButton extends StatelessWidget {
       child: Obx(() => Center(
             child: !isLoading.value
                 ? Text(text)
-                : CupertinoActivityIndicator(
+                : const CupertinoActivityIndicator(
                     color: Colors.white,
                   ),
           )),

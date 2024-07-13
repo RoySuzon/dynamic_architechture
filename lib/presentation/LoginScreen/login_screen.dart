@@ -1,4 +1,3 @@
-import 'package:dynamic_architechture/data/repository/repository_details.dart';
 import 'package:dynamic_architechture/presentation/LoginScreen/controller/login_screen_controller.dart';
 import 'package:dynamic_architechture/widgets/custom_text_field.dart';
 import 'package:dynamic_architechture/widgets/custom_button.dart';

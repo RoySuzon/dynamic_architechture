@@ -6,7 +6,7 @@ class CustomBottomNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: [],
+      items: const [],
     );
   }
 }
