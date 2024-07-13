@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 enum Method { post, get, put, patch, delete }
@@ -18,7 +16,7 @@ class HttpManager {
       Uri uri = Uri.parse(url).replace(queryParameters: queryParameters);
       log(uri.toString(), name: "********** ${method.name.toUpperCase()}${name != null ? ' *** $name API **********' : " ********** "}");
       if (body != null) {
-        log(body.toString(), name: "********** BODY **********");
+        log(jsonEncode(body), name: "********** BODY **********");
       }
       if (queryParameters != null) {
         log(jsonEncode(queryParameters), name: "********** PARAMS **********");
@@ -43,12 +41,12 @@ Future<http.Response> _getResponse({required Uri uri, required Method method, fi
     case Method.get:
       return await http.get(uri, headers: headers);
     case Method.post:
-      return await http.post(uri, headers: headers, body: jsonEncode(body));
+      return await http.post(uri, headers: headers, body: body == null ? null : jsonEncode(body));
     case Method.delete:
-      return await http.delete(uri, headers: headers, body: jsonEncode(body));
+      return await http.delete(uri, headers: headers, body: body == null ? null : jsonEncode(body));
     case Method.patch:
-      return await http.patch(uri, headers: headers, body: jsonEncode(body));
+      return await http.patch(uri, headers: headers, body: body == null ? null : jsonEncode(body));
     case Method.put:
-      return await http.put(uri, headers: headers, body: jsonEncode(body));
+      return await http.put(uri, headers: headers, body: body == null ? null : jsonEncode(body));
   }
 }
