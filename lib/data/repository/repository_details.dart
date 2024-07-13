@@ -6,6 +6,11 @@ import 'repository_interface.dart';
 class RepositoryData implements RepositoryInterface {
   @override
   E login(String userName, String password) async {
-    return HttpManager.apiRequest(url: ApiEndPoint.loginUrl, method: Method.post, statusCode: HttpStatus.ok, body: {"username": userName, "password": password});
+    return await HttpManager.apiRequest(url: ApiEndPoint.loginUrl, method: Method.post, statusCode: HttpStatus.ok, body: {"username": userName, "password": password});
+  }
+
+  @override
+  E getProducts() async {
+    return await HttpManager.apiRequest(url: ApiEndPoint.getProducts, method: Method.get, statusCode: HttpStatus.ok);
   }
 }
